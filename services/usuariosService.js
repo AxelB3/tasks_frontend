@@ -51,6 +51,12 @@ class usuariosService {
   }
 
   authUser(params, callback, error) {
+    Swal.fire({
+      title: "Cargando...",
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
     http
       .post("api/auth/login", params)
       .then((response) => {
